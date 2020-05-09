@@ -1,0 +1,28 @@
+@import url('https://fonts.googleapis.com/css?family=Poppins:400,500,600,700&display=swap');
+
+// override variables
+@import './variables';
+
+// bulma css
+@import '../../node_modules/bulma/bulma.sass';
+
+// React medium editor
+@import '../../node_modules/medium-editor/dist/css/medium-editor.css';
+@import '../../node_modules/medium-editor/dist/css/themes/default.css';
+
+#root {
+  max-width: 1440px;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+@media screen and (min-width: 1408px) {
+  .container {
+    max-width: 1160px;
+  }
+}
+
+@import './utilities';
+@import './typography';
+@import './tabs';
+@import './animation';

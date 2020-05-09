@@ -1,0 +1,39 @@
+{
+  "presets": ["next/babel"],
+  "plugins": [
+    "inline-react-svg",
+    "@babel/syntax-dynamic-import",
+    [
+      "module-resolver",
+      {
+        "root": ["."],
+        "alias": {
+          "@components": "./src/components",
+          "@app": "./src/app",
+          "@config": "./src/config",
+          "@assets": "./src/assets",
+          "@pages": "./src/pages",
+          "@api": "./src/api",
+          "@layouts": "./src/layouts",
+          "@util": "./src/util",
+          "@styles": "./src/styles",
+          "@types": "./src/types",
+          "@redux": "./src/redux",
+          "@constant": "./src/constant",
+          "@": "./src"
+        }
+      }
+    ]
+  ],
+  "env": {
+    "development": {
+      "presets": ["next/babel", "@zeit/next-typescript/babel"]
+    },
+    "production": {
+      "presets": ["next/babel", "@zeit/next-typescript/babel"]
+    },
+    "test": {
+      "presets": [["next/babel", { "preset-env": { "modules": "commonjs" } }], "@zeit/next-typescript/babel"]
+    }
+  }
+}

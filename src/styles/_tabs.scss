@@ -1,0 +1,33 @@
+.tabs li.is-active {
+  padding-left: 0;
+  padding-right: 1.25em;
+}
+.tabs ul {
+  border-bottom-color: $tabs_border-bottom-color;
+}
+.tabs li.is-active a {
+  padding-left: 0;
+  padding-right: 0;
+  color: $dark;
+  border-bottom-color: $dark;
+}
+.tabs li.is-active a:hover {
+  padding-left: 0;
+  padding-right: 0;
+  color: $dark;
+  border-bottom-color: $dark;
+}
+
+.tabs li a {
+  color: $grey;
+  padding-left: 0;
+  padding-right: 1.25em;
+  border-bottom-color: transparent;
+}
+.tabs li a:hover {
+  color: $dark;
+  border-bottom-color: transparent;
+}
+.tabs {
+  margin-bottom: 0rem !important;
+}
