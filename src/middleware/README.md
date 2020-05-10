@@ -1,1 +1,0 @@
-# Hoc component for middleware

@@ -30,7 +30,6 @@ function Home(props: Props) {
     <>
       <Header />
       <Tabs lengthStory={post.length} typeTab={typeTab} setTypeTab={setTypeTab} />
-      {!isLoggedin && <Login />}
       {typeTab === 'drafts' ? <StoryList dataPost={post} /> : <PublishList />}
     </>
   );

@@ -4,6 +4,7 @@ import { bindActionCreators, Dispatch } from 'redux';
 import getPost from '@redux/post/action';
 import { getDataPost, getIsLoading, getPostIsError } from '@redux/post/selector';
 import LayoutHome from '@layouts/home';
+import protectedPage from '@/middleware/protectedPage';
 
 const mapStateToProps = (state: any) => ({
   post: getDataPost(state),
@@ -27,4 +28,9 @@ function IndexPage(props) {
   );
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(IndexPage);
+// IndexPage.getInitialProps = async (ctx) => {
+
+// };
+const reduxConnect = connect(mapStateToProps, mapDispatchToProps)(IndexPage);
+// export default reduxConnect;
+export default protectedPage(reduxConnect);

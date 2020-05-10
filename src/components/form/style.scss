@@ -1,0 +1,38 @@
+@import '../../styles//variables';
+
+.form-group-custom {
+  display: flex;
+  flex-direction: column;
+  width: 270px;
+  margin-top: 50px;
+  align-items: center;
+  label {
+    font-size: 15px;
+    line-height: 20px;
+    font-weight: 300;
+    color: $black;
+    margin-bottom: 12px;
+  }
+  input[type='text'],
+  input[type='text']:focus {
+    padding: 0px 5px;
+    border-width: 0px;
+    width: 270px;
+    font: inherit;
+    font-weight: 500;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.34);
+  }
+  button[type='submit'],
+  button[type='submit']:focus {
+    color: $white;
+    background-color: $black;
+    border-color: $black;
+    font-size: 15.8px;
+    border-radius: 4px;
+    padding: 8px 16px;
+    letter-spacing: 0px;
+    line-height: 20px;
+    border-style: solid;
+    font-weight: 400;
+  }
+}

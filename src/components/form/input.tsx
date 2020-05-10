@@ -1,6 +1,25 @@
-import React from 'react';
+import React, { HtmlHTMLAttributes } from 'react';
 import './style.scss';
+import InputText from './fragments/inputText';
+import Button from './fragments/button';
+interface Props extends React.HTMLAttributes<HTMLElement> {
+  type?: string;
+  name?: string;
+  id?: string;
+  maxLength?: number;
+  required?: boolean;
+  disabled?: boolean;
+  label?: string;
+}
+export default function input(props: Props) {
+  switch (props.type) {
+    case 'text':
+      return <InputText {...props} />;
 
-export default function input() {
-  return <div></div>;
+    case 'submit':
+      return <Button {...props} type="submit" />;
+
+    default:
+      break;
+  }
 }
