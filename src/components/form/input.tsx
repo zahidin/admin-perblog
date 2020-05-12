@@ -10,6 +10,7 @@ interface Props extends React.HTMLAttributes<HTMLElement> {
   required?: boolean;
   disabled?: boolean;
   label?: string;
+  error?: Object;
 }
 export default function input(props: Props) {
   switch (props.type) {

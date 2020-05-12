@@ -34,5 +34,10 @@
     line-height: 20px;
     border-style: solid;
     font-weight: 400;
+    cursor: pointer;
+  }
+
+  .input-error {
+    border-bottom: 1px solid $danger !important;
   }
 }

@@ -1,4 +1,5 @@
 import React from 'react';
+import classNames from 'classnames';
 
 interface Props extends React.HTMLAttributes<HTMLElement> {
   type?: string;
@@ -8,24 +9,34 @@ interface Props extends React.HTMLAttributes<HTMLElement> {
   required?: boolean;
   disabled?: boolean;
   label?: string;
+  error?: Object;
 }
 
 export default function inputText(props: Props) {
+  const checkingError = (error) => {
+    if (error) return error?.message;
+    return props.label;
+  };
+
   return (
     <div className="form-group-custom">
       <label
-        className="flex align-items-center justify-content-center text-center"
+        className={classNames('flex align-items-center justify-content-center text-center', {
+          'has-text-danger': props.error,
+        })}
         htmlFor={props.name}
       >
-        {props.label}
+        {checkingError(props.error)}
       </label>
 
       <input
+        className={classNames({ 'input-error animation-shake': props.error })}
         type={props.type}
         name={props.name}
         id={props.id}
         maxLength={props.maxLength}
         disabled={props.disabled}
+        {...props}
       />
     </div>
   );
