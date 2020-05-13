@@ -30,7 +30,7 @@ export default function inputText(props: Props) {
       </label>
 
       <input
-        className={classNames({ 'input-error animation-shake': props.error })}
+        className={classNames({ 'input-error': props.error })}
         type={props.type}
         name={props.name}
         id={props.id}

@@ -1,4 +1,5 @@
-@import '../../styles//variables';
+@import '../../styles/variables';
+@import '../../styles/mixins';
 
 .form-group-custom {
   display: flex;
@@ -38,6 +39,7 @@
   }
 
   .input-error {
+    @include animation-shake;
     border-bottom: 1px solid $danger !important;
   }
 }

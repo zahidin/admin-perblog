@@ -1,0 +1,227 @@
+/* 
+ * Animation ~ Fadeout
+ */
+@mixin animation-fadeout-1 {
+  @-webkit-keyframes animation-fadeout-1 {
+    0% {
+      opacity: 1;
+    }
+    100% {
+      opacity: 0;
+    }
+  }
+  @-moz-keyframes animation-fadeout-1 {
+    0% {
+      opacity: 1;
+    }
+    100% {
+      opacity: 0;
+    }
+  }
+  @keyframes animation-fadeout-1 {
+    0% {
+      opacity: 1;
+    }
+    100% {
+      opacity: 0;
+    }
+  }
+}
+
+@mixin animation-fadeout-2 {
+  @-webkit-keyframes animation-fadeout-2 {
+    0% {
+      opacity: 1;
+    }
+    100% {
+      opacity: 0;
+    }
+  }
+  @-moz-keyframes animation-fadeout-2 {
+    0% {
+      opacity: 1;
+    }
+    100% {
+      opacity: 0;
+    }
+  }
+  @keyframes animation-fadeout-2 {
+    0% {
+      opacity: 1;
+    }
+    100% {
+      opacity: 0;
+    }
+  }
+}
+
+@mixin animation-fadeout-3 {
+  @-webkit-keyframes animation-fadeout-3 {
+    0% {
+      opacity: 1;
+      transform: scale(1);
+    }
+    25% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 0;
+      transform: scale(0.9);
+    }
+  }
+  @-moz-keyframes animation-fadeout-3 {
+    0% {
+      opacity: 1;
+      transform: scale(1);
+    }
+    25% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 0;
+      transform: scale(0.9);
+    }
+  }
+  @keyframes animation-fadeout-3 {
+    0% {
+      opacity: 1;
+      transform: scale(1);
+    }
+    25% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 0;
+      transform: scale(0.9);
+    }
+  }
+}
+
+/* 
+ * Animation ~ Fadein
+ */
+@mixin animation-fadein-1 {
+  @-webkit-keyframes animation-fadein-1 {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+  @-moz-keyframes animation-fadein-1 {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+  @keyframes animation-fadein-1 {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+}
+
+@mixin animation-fadein-2 {
+  @-webkit-keyframes animation-fadein-2 {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+  @-moz-keyframes animation-fadein-2 {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+  @keyframes animation-fadein-2 {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+}
+
+@mixin animation-fadein-3 {
+  @-webkit-keyframes animation-fadein-3 {
+    0% {
+      opacity: 0;
+    }
+    25% {
+      transform: scale(0.9);
+    }
+    100% {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+  @-moz-keyframes animation-fadein-3 {
+    0% {
+      opacity: 0;
+    }
+    25% {
+      transform: scale(0.9);
+    }
+    100% {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+  @keyframes animation-fadein-3 {
+    0% {
+      opacity: 0;
+    }
+    25% {
+      transform: scale(0.9);
+    }
+    100% {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+}
+
+/* 
+ * Animation ~ shake
+ */
+@mixin animation-shake {
+  animation: shake 0.82s cubic-bezier(0.36, 0.07, 0.19, 0.97) both;
+  transform: translate3d(0, 0, 0);
+  backface-visibility: hidden;
+  perspective: 1000px;
+
+  @keyframes shake {
+    10%,
+    90% {
+      transform: translate3d(-1px, 0, 0);
+    }
+
+    20%,
+    80% {
+      transform: translate3d(2px, 0, 0);
+    }
+
+    30%,
+    50%,
+    70% {
+      transform: translate3d(-4px, 0, 0);
+    }
+
+    40%,
+    60% {
+      transform: translate3d(4px, 0, 0);
+    }
+  }
+}
