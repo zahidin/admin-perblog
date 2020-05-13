@@ -1,26 +1,23 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import './styles/index.scss';
 import Card from '@components/card';
-import Input from '@components/form/input';
-import { useForm, Controller, ErrorMessage } from 'react-hook-form';
-import * as yup from 'yup';
-import { validationEn } from '@/locales/validation';
+import FormEmail from './fragments/formEmail';
+import FormPassword from './fragments/formPassword';
 
 type FormData = {
   email: string;
+  password: string;
 };
-yup.setLocale(validationEn);
-const validationSchema = yup.object().shape({
-  email: yup.string().email().required(),
-});
 
 function Login() {
-  const { control, setValue, handleSubmit, errors } = useForm<FormData>({
-    validationSchema,
-  });
-  const onSubmit = (data) => {
-    console.log(data);
-  };
+  const [filledEmail, setFilledEmail] = useState<boolean>(false);
+  const [formData, setFormData] = useState<FormData>();
+
+  useEffect(() => {
+    if (formData?.email) return setFilledEmail(true);
+    return setFilledEmail(false);
+  }, [formData]);
+
   return (
     <div className="modal is-active">
       <div className="modal-background"></div>
@@ -30,17 +27,13 @@ function Login() {
           <span className="gap body-2 text-center line-height-1">
             Sign in to be able to write stories that I have done to share experiences with everyone
           </span>
-          <form className="gap" onSubmit={handleSubmit(onSubmit)}>
-            <Controller
-              as={
-                <Input type="text" name="email" id="text" label="Your email" error={errors.email} />
-              }
-              name="email"
-              defaultValue=""
-              control={control}
-            />
-            <Input type="submit" name="submit" id="submit" label="Continue" />
-          </form>
+          <div>
+            {!filledEmail ? (
+              <FormEmail formData={formData} setFormData={setFormData} />
+            ) : (
+              <FormPassword formData={formData} setFormData={setFormData} />
+            )}
+          </div>
         </div>
       </Card>
     </div>

@@ -14,6 +14,8 @@ interface Props extends React.HTMLAttributes<HTMLElement> {
 }
 export default function input(props: Props) {
   switch (props.type) {
+    case 'number':
+    case 'password':
     case 'text':
       return <InputText {...props} />;
 
