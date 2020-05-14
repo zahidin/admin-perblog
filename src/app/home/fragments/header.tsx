@@ -1,7 +1,6 @@
 import React from 'react';
 
-interface Props {}
-function header(props: Props) {
+function header() {
   return (
     <div className="section-title is-flex flex-1">
       <div className="is-flex flex-1 align-items-center">

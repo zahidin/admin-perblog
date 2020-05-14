@@ -3,25 +3,18 @@ import Input from '@components/form/input';
 import { useForm, Controller } from 'react-hook-form';
 import * as yup from 'yup';
 import { validationEn } from '@/locales/validation';
+import { FormPasswordProps, FormPassword } from '@/types/app/login';
 
-interface Props {
-  setFormData: React.Dispatch<SetStateAction<object>>;
-  formData: object;
-}
-
-type FormData = {
-  password: string;
-};
 yup.setLocale(validationEn);
 
 const validationSchema = yup.object().shape({
   password: yup.string().min(8).required(),
 });
 
-function formEmail(props: Props) {
+function formEmail(props: FormPasswordProps) {
   const { setFormData, formData } = props;
   // tslint:disable-next-line: react-hooks-nesting
-  const { control, setValue, handleSubmit, errors } = useForm<FormData>({
+  const { control, setValue, handleSubmit, errors } = useForm<FormPassword>({
     validationSchema: validationSchema,
   });
 

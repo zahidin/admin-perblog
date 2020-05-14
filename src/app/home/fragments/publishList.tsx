@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 
-interface Props {}
-function publishList(props: Props) {
+function publishList() {
   return (
     <div className="is-flex flex-1 flex-column align-items-center justify-content-center">
       <span className="h4 section-not-found-post">

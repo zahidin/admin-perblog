@@ -1,16 +1,7 @@
 import React from 'react';
+import { ButtonProps } from '@/types/components/form';
 
-interface Props extends React.HTMLAttributes<HTMLElement> {
-  type?: 'button' | 'submit' | 'reset';
-  name?: string;
-  id?: string;
-  required?: boolean;
-  disabled?: boolean;
-  label?: string;
-  error?: Object;
-}
-
-export default function button(props: Props) {
+export default function button(props: ButtonProps) {
   return (
     <div className="form-group-custom">
       <button

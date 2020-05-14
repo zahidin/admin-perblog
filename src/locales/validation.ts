@@ -1,4 +1,6 @@
-export const validationEn = {
+import { LocaleObject } from 'yup';
+
+export const validationEn: LocaleObject = {
   number: {
     min: 'This field must be at least ${min}',
     max: 'The field may not be greater than ${max}',

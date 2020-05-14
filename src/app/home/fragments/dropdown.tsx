@@ -3,15 +3,14 @@ import { icons } from '@assets/index';
 import '@app/home/styles/index.scss';
 import classNames from 'classnames';
 
-interface Props {}
-function Tooltip(props: Props) {
+function Tooltip() {
   const [active, setActive] = useState<boolean>(false);
   const { ChevronDown } = icons;
 
   return (
     <div
       tabIndex={0}
-      className={classNames('dropdown', { 'is-active': active === true })}
+      className={classNames('dropdown', { 'is-active': active })}
       onClick={() => setActive(!active)}
       onBlur={() => setActive(false)}
     >

@@ -1,6 +1,6 @@
 import { createSelector } from 'reselect';
 import { AppStore } from '../reducer';
-import { Post } from '@/types/post';
+import { Post } from '@/types/redux/post';
 
 const makeIsLoading = (state: AppStore) => state.post.isLoading;
 const makeIsError = (state: AppStore) => state.post.isError;

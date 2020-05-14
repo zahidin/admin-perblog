@@ -1,4 +1,3 @@
-// import Logo from '@assets/commons/icons/logo.svg';
 import { icons } from '@assets/index';
 import './style.scss';
 

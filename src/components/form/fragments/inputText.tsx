@@ -1,18 +1,8 @@
 import React from 'react';
 import classNames from 'classnames';
+import { InputProps } from '@/types/components/form';
 
-interface Props extends React.HTMLAttributes<HTMLElement> {
-  type?: string;
-  name?: string;
-  id?: string;
-  maxLength?: number;
-  required?: boolean;
-  disabled?: boolean;
-  label?: string;
-  error?: Object;
-}
-
-export default function inputText(props: Props) {
+export default function inputText(props: InputProps) {
   const checkingError = (error) => {
     if (error) return error?.message;
     return props.label;

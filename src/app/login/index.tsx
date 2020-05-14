@@ -3,11 +3,7 @@ import './styles/index.scss';
 import Card from '@components/card';
 import FormEmail from './fragments/formEmail';
 import FormPassword from './fragments/formPassword';
-
-type FormData = {
-  email: string;
-  password: string;
-};
+import { FormData } from '@/types/app/login';
 
 function Login() {
   const [filledEmail, setFilledEmail] = useState<boolean>(false);

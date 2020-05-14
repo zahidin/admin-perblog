@@ -1,13 +1,8 @@
 import React from 'react';
 import classNames from 'classnames';
+import { TabsProps } from '@/types/app/home';
 
-interface Props {
-  setTypeTab: Function;
-  typeTab: string;
-  lengthStory: number;
-}
-
-function tabs(props: Props) {
+function tabs(props: TabsProps) {
   const { setTypeTab, typeTab, lengthStory } = props;
   return (
     <div className="tabs">

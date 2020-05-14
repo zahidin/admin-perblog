@@ -1,17 +1,14 @@
 import React from 'react';
 import Dropdown from './dropdown';
-import { Post } from '@/types/post';
+import { Post } from '@/types/redux/post';
+import { DraftListProps } from '@/types/app/home';
 
-interface Props {
-  dataPost?: [];
-}
-
-function storyList(props: Props) {
+function storyList(props: DraftListProps) {
   const { dataPost } = props;
   return <PostList dataPost={dataPost} />;
 }
 
-const PostList = (props: Props) => {
+const PostList = (props: DraftListProps) => {
   const { dataPost } = props;
 
   if (!dataPost) {

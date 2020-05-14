@@ -1,12 +1,8 @@
 import React from 'react';
-import { NextPage, NextPageContext } from 'next';
+import { NextPage } from 'next';
 import Login from '@app/login';
 import { checkingToken } from '@util/token';
-
-interface Context extends NextPageContext {
-  auth?: boolean;
-  token?: string;
-}
+import { Context } from '@/types/middleware/protectedPage';
 
 export default function protectedPage(WrappedComponent: NextPage) {
   const protectedPage = (props) => {

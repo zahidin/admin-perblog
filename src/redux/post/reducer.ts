@@ -1,5 +1,5 @@
-import { State } from '@/types/state';
-import { Action } from '@/types/action';
+import { State } from '@/types/redux/state';
+import { Action } from '@/types/redux/action';
 
 const initialState: State = {
   data: [] || {},

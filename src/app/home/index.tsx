@@ -1,22 +1,14 @@
 import React, { useEffect, useState, useCallback } from 'react';
 import './styles/index.scss';
 import Tabs from './fragments/tabs';
-import StoryList from './fragments/darftList';
+import StoryList from './fragments/draftList';
 import Header from './fragments/header';
 import PublishList from './fragments/publishList';
-import Login from '@app/login';
+import { HomeProps } from '@/types/app/home';
 
-interface Props {
-  isLoading: boolean;
-  post: [];
-  isError: boolean;
-  getPostAction: Function;
-}
-
-function Home(props: Props) {
+function Home(props: HomeProps) {
   const { isLoading, post, isError, getPostAction } = props;
   const [typeTab, setTypeTab] = useState<string>('drafts');
-  const [isLoggedin, setIsLoggedin] = useState<boolean>(false);
 
   const getDataPost = useCallback(async () => {
     await getPostAction();

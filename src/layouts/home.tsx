@@ -1,6 +1,7 @@
 import Navbar from '@components/navbar';
+import { HomeProps } from '@/types/layouts/home';
 
-function LayoutHome(props) {
+function LayoutHome(props: HomeProps) {
   return (
     <div>
       <Navbar />
