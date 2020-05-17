@@ -1,5 +1,11 @@
-import { State } from '@/types/redux/state';
 import { Action } from '@/types/redux/action';
+interface State {
+  data: [] | {};
+  isLoading: boolean;
+  isError: boolean;
+  flag: '';
+  errMessage: '';
+}
 
 const initialState: State = {
   data: [] || {},

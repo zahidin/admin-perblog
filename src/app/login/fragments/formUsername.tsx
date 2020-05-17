@@ -3,18 +3,18 @@ import Input from '@components/form/input';
 import { useForm, Controller } from 'react-hook-form';
 import * as yup from 'yup';
 import { validationEn } from '@/locales/validation';
-import { FormEmailProps, FormEmail } from '@/types/app/login';
+import { FormUsernameProps, FormUsername } from '@/types/app/login';
 
 yup.setLocale(validationEn);
 
 const validationSchema = yup.object().shape({
-  email: yup.string().email().required(),
+  username: yup.string().required(),
 });
 
-function formEmail(props: FormEmailProps) {
+function formUsername(props: FormUsernameProps) {
   const { formData, setFormData } = props;
   // tslint:disable-next-line: react-hooks-nesting
-  const { control, setValue, handleSubmit, errors } = useForm<FormEmail>({
+  const { control, setValue, handleSubmit, errors } = useForm<FormUsername>({
     validationSchema: validationSchema,
   });
 
@@ -25,8 +25,16 @@ function formEmail(props: FormEmailProps) {
     <div>
       <form className="gap" onSubmit={handleSubmit(onSubmit)}>
         <Controller
-          as={<Input type="text" name="email" id="text" label="Your email" error={errors.email} />}
-          name="email"
+          as={
+            <Input
+              type="text"
+              name="username"
+              id="text"
+              label="Your Username"
+              error={errors.username}
+            />
+          }
+          name="username"
           defaultValue=""
           control={control}
         />
@@ -36,4 +44,4 @@ function formEmail(props: FormEmailProps) {
   );
 }
 
-export default formEmail;
+export default formUsername;

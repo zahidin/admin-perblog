@@ -6,10 +6,11 @@ import { Context } from '@/types/middleware/protectedPage';
 
 export default function protectedPage(WrappedComponent: NextPage) {
   const protectedPage = (props) => {
-    if (!props.auth) {
+    const statusAuth: boolean = checkingToken();
+    if (!statusAuth) {
       return (
         <>
-          <Login />
+          <Login {...props} />
           <WrappedComponent {...props} />;
         </>
       );
@@ -18,16 +19,14 @@ export default function protectedPage(WrappedComponent: NextPage) {
   };
 
   protectedPage.getInitialProps = async (ctx: Context) => {
-    const auth: boolean = checkingToken();
-    ctx.auth = auth;
+    // const auth: boolean = checkingToken();
+    // ctx.auth = auth;
 
     // const pageProps =
     //   WrappedComponent.getInitialProps && (await WrappedComponent.getInitialProps(ctx));
     return {
-      pageProps: WrappedComponent.getInitialProps
-        ? await WrappedComponent.getInitialProps(ctx)
-        : {},
-      auth,
+      pageProps: WrappedComponent.getInitialProps && (await WrappedComponent.getInitialProps(ctx)),
+      // statusAuth: auth,
     };
   };
   return protectedPage;

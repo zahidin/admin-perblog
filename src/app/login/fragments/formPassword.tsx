@@ -8,11 +8,11 @@ import { FormPasswordProps, FormPassword } from '@/types/app/login';
 yup.setLocale(validationEn);
 
 const validationSchema = yup.object().shape({
-  password: yup.string().min(8).required(),
+  password: yup.string().required(),
 });
 
-function formEmail(props: FormPasswordProps) {
-  const { setFormData, formData } = props;
+function formPassword(props: FormPasswordProps) {
+  const { setFormData, formData, requestLoggedIn } = props;
   // tslint:disable-next-line: react-hooks-nesting
   const { control, setValue, handleSubmit, errors } = useForm<FormPassword>({
     validationSchema: validationSchema,
@@ -20,6 +20,7 @@ function formEmail(props: FormPasswordProps) {
 
   const onSubmit = (data) => {
     setFormData({ ...formData, ...data });
+    requestLoggedIn({ ...formData, ...data });
   };
   return (
     <div>
@@ -44,4 +45,4 @@ function formEmail(props: FormPasswordProps) {
   );
 }
 
-export default formEmail;
+export default formPassword;

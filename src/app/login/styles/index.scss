@@ -4,6 +4,10 @@
   @include animation-fadein-1;
   animation: 300ms cubic-bezier(0.25, 0.1, 0.25, 1) 0s 1 normal forwards running animation-fadein-1;
 }
+.modal .is-passive {
+  @include animation-fadeout-1;
+  animation: 300ms cubic-bezier(0.25, 0.1, 0.25, 1) 0s 1 normal forwards running animation-fadeout-1;
+}
 .modal .is-active {
   height: 100vh;
   overflow-y: hidden;
