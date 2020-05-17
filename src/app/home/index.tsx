@@ -7,7 +7,7 @@ import PublishList from './fragments/publishList';
 import { HomeProps } from '@/types/app/home';
 
 function Home(props: HomeProps) {
-  const { isLoading, post, isError, getPostAction } = props;
+  const { postIsLoading, post, postIsError, getPostAction } = props;
   const [typeTab, setTypeTab] = useState<string>('drafts');
 
   const getDataPost = useCallback(async () => {
@@ -22,7 +22,11 @@ function Home(props: HomeProps) {
     <>
       <Header />
       <Tabs lengthStory={post.length} typeTab={typeTab} setTypeTab={setTypeTab} />
-      {typeTab === 'drafts' ? <StoryList dataPost={post} /> : <PublishList />}
+      {typeTab === 'drafts' ? (
+        <StoryList dataPost={post} postIsLoading={postIsLoading} />
+      ) : (
+        <PublishList />
+      )}
     </>
   );
 }

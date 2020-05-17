@@ -10,9 +10,10 @@ const successAuth = (data: {} | []) => ({
   data,
 });
 
-const errorAuth = (res: { message: string }) => ({
+const errorAuth = (res: { message: string; flag?: string }) => ({
   type: 'GET_ALL_AUTH_REJECTED',
   message: res.message,
+  flag: res.flag,
 });
 
 const requestLoggedIn = (data) => {
@@ -25,7 +26,7 @@ const requestLoggedIn = (data) => {
       }
       return dispatch(successAuth(res));
     } catch (error) {
-      return dispatch(errorAuth(error.message));
+      return dispatch(errorAuth({ message: error.message }));
     }
   };
 };

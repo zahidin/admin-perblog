@@ -4,14 +4,14 @@ import { Post } from '@/types/redux/post';
 import { DraftListProps } from '@/types/app/home';
 
 function storyList(props: DraftListProps) {
-  const { dataPost } = props;
-  return <PostList dataPost={dataPost} />;
+  const { dataPost, postIsLoading } = props;
+  return <PostList dataPost={dataPost} postIsLoading={postIsLoading} />;
 }
 
 const PostList = (props: DraftListProps) => {
-  const { dataPost } = props;
+  const { dataPost, postIsLoading } = props;
 
-  if (!dataPost) {
+  if (!dataPost || postIsLoading) {
     return <div>Loading....</div>;
   }
 
@@ -29,7 +29,7 @@ const PostList = (props: DraftListProps) => {
           <span className="h4 font-weight-600 has-text-black">{val.title}</span>
           <div className="is-flex flex-row align-items-center">
             <span className="subtitle-3 font-weight-400 has-text-grey">
-              Created {val.id} day ago
+              Created {val.date} day ago
             </span>
             <Dropdown />
           </div>

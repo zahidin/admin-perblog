@@ -31,10 +31,17 @@ const authReducer = (state: State = initialState, action: Action): State => {
         isLoading: false,
         isError: false,
         errMessage: '',
+        flag: '',
         data: action.data as {},
       };
     case 'GET_ALL_AUTH_REJECTED':
-      return { ...state, isLoading: false, isError: true, errMessage: action.message };
+      return {
+        ...state,
+        isLoading: false,
+        isError: true,
+        errMessage: action.message,
+        flag: action.flag,
+      };
     default:
       return state;
   }

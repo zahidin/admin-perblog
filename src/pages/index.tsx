@@ -15,8 +15,8 @@ import protectedPage from '@/middleware/protectedPage';
 
 const mapStateToProps = (state: any) => ({
   post: getDataPost(state),
-  isLoading: getIsLoading(state),
-  isError: getPostIsError(state),
+  postIsLoading: getIsLoading(state),
+  postIsError: getPostIsError(state),
   auth: getDataAuth(state),
   authIsLoading: getAuthIsLoading(state),
   authIsError: getAuthIsError(state),

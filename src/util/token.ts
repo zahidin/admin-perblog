@@ -15,7 +15,13 @@ export const saveToken = ({
   token?: string;
   refreshToken?: string;
 }): boolean => {
-  cookies.set('_tkn', token);
-  cookies.set('_rfshTkn', refreshToken);
+  const today = new Date();
+  const tomorrow = new Date();
+  tomorrow.setDate(today.getDate() + 1);
+
+  cookies.set('_tkn', token, { expires: tomorrow });
+  cookies.set('_rfshTkn', refreshToken, {
+    expires: tomorrow,
+  });
   return true;
 };

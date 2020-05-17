@@ -1,4 +1,4 @@
-import { POST } from '@constant/api';
+import { APIV1 } from '@constant/api';
 
 async function handleResponse(response: Response) {
   const text = await response.text();
@@ -7,6 +7,7 @@ async function handleResponse(response: Response) {
 }
 
 export async function requestPost() {
+  const url = `${APIV1}/post`;
   const headers = {
     method: 'GET',
     headers: {
@@ -14,6 +15,6 @@ export async function requestPost() {
       Accept: 'application/json',
     },
   };
-  const response = await fetch(POST, headers);
+  const response = await fetch(url, headers);
   return handleResponse(response);
 }

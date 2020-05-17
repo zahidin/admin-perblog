@@ -10,9 +10,10 @@ const successGetPost = (data: {} | []) => ({
   data,
 });
 
-const errorGetPost = (message: string) => ({
+const errorGetPost = (res: { message: string; flag?: string }) => ({
   type: 'GET_ALL_POST_REJECTED',
-  message,
+  message: res.message,
+  flag: res.flag,
 });
 
 const getPost = () => {
@@ -20,9 +21,12 @@ const getPost = () => {
     dispatch(loadingGetPost());
     try {
       const res = await requestPost();
-      return dispatch(successGetPost(res));
+      if (!res.success) {
+        return dispatch(errorGetPost(res));
+      }
+      return dispatch(successGetPost(res.result));
     } catch (error) {
-      return dispatch(errorGetPost(error.message));
+      return dispatch(errorGetPost({ message: error.message }));
     }
   };
 };

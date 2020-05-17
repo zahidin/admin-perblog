@@ -3,8 +3,8 @@ interface State {
   data: [] | {};
   isLoading: boolean;
   isError: boolean;
-  flag: '';
-  errMessage: '';
+  flag: string;
+  errMessage: string;
 }
 
 const initialState: State = {
@@ -20,9 +20,22 @@ const postReducer = (state: State = initialState, action: Action): State => {
     case 'GET_ALL_POST_PENDING':
       return { ...state, isLoading: true };
     case 'GET_ALL_POST_FULFILLED':
-      return { ...state, isLoading: false, data: action.data };
+      return {
+        ...state,
+        isLoading: false,
+        isError: false,
+        errMessage: '',
+        flag: '',
+        data: action.data,
+      };
     case 'GET_ALL_POST_REJECTED':
-      return { ...state, isLoading: false, isError: true };
+      return {
+        ...state,
+        isLoading: false,
+        isError: true,
+        errMessage: action.message,
+        flag: action.flag,
+      };
     default:
       return state;
   }

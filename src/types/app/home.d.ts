@@ -1,11 +1,12 @@
 export interface HomeProps {
-  isLoading: boolean;
+  postIsLoading: boolean;
   post: [];
-  isError: boolean;
+  postIsError: boolean;
   getPostAction: Function;
 }
 
 export interface DraftListProps {
+  postIsLoading: boolean;
   dataPost?: [];
 }
 
