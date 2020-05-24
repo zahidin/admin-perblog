@@ -1,6 +1,6 @@
 export interface Action {
   type: string;
-  data: {} | [];
+  data: {};
   message?: string;
   flag?: string;
 }

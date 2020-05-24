@@ -8,6 +8,10 @@ export const checkingToken = (token?: string): boolean => {
   return false;
 };
 
+export const getToken = (): string => {
+  return cookies.get('_tkn');
+};
+
 export const saveToken = ({
   token = '',
   refreshToken = '',

@@ -1,5 +1,5 @@
 import Navbar from '@components/navbar';
-import { HomeProps } from '@/types/layouts/home';
+import { HomeProps } from '@/types/layouts';
 
 function LayoutHome(props: HomeProps) {
   return (

@@ -1,7 +1,7 @@
 import { Dispatch } from 'redux';
-import { requestPost } from '@api/post';
+import { requestPost, requestAddPost } from '@api/post';
 
-const loadingGetPost = () => ({
+const loadingPost = () => ({
   type: 'GET_ALL_POST_PENDING',
 });
 
@@ -10,25 +10,53 @@ const successGetPost = (data: {} | []) => ({
   data,
 });
 
-const errorGetPost = (res: { message: string; flag?: string }) => ({
+const concatDataPost = (data: {} | []) => ({
+  type: 'CONCAT_DATA_POST',
+  data,
+});
+
+const errorPost = (res: { message: string; flag?: string }) => ({
   type: 'GET_ALL_POST_REJECTED',
   message: res.message,
   flag: res.flag,
 });
 
-const getPost = () => {
+export const getPost = () => {
   return async (dispatch: Dispatch) => {
-    dispatch(loadingGetPost());
+    dispatch(loadingPost());
     try {
       const res = await requestPost();
       if (!res.success) {
-        return dispatch(errorGetPost(res));
+        return dispatch(errorPost(res));
       }
       return dispatch(successGetPost(res.result));
     } catch (error) {
-      return dispatch(errorGetPost({ message: error.message }));
+      return dispatch(errorPost({ message: error.message }));
     }
   };
 };
 
-export default getPost;
+export const addPost = (data) => {
+  const dataBlock =
+    data && data.blocks.find((element: { type: string }) => element.type === 'header-two');
+
+  const resultData = {
+    title: dataBlock.text.toString(),
+    date: Math.round(+new Date() / 1000).toString(),
+    content: JSON.stringify(data),
+    tags: '',
+  };
+  console.log('addPost -> resultData', resultData);
+  return async (dispatch: Dispatch) => {
+    dispatch(loadingPost());
+    try {
+      const res = await requestAddPost(resultData);
+      if (!res.success) {
+        return dispatch(errorPost(res));
+      }
+      return dispatch(concatDataPost(res.result));
+    } catch (error) {
+      return dispatch(errorPost({ message: error.message }));
+    }
+  };
+};

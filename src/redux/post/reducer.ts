@@ -1,6 +1,6 @@
 import { Action } from '@/types/redux/action';
 interface State {
-  data: [] | {};
+  data: [];
   isLoading: boolean;
   isError: boolean;
   flag: string;
@@ -8,7 +8,7 @@ interface State {
 }
 
 const initialState: State = {
-  data: [] || {},
+  data: [],
   isLoading: false,
   isError: false,
   flag: '',
@@ -26,7 +26,7 @@ const postReducer = (state: State = initialState, action: Action): State => {
         isError: false,
         errMessage: '',
         flag: '',
-        data: action.data,
+        data: action.data as [],
       };
     case 'GET_ALL_POST_REJECTED':
       return {
@@ -35,6 +35,15 @@ const postReducer = (state: State = initialState, action: Action): State => {
         isError: true,
         errMessage: action.message,
         flag: action.flag,
+      };
+    case 'CONCAT_DATA_POST':
+      return {
+        ...state,
+        isLoading: false,
+        isError: false,
+        errMessage: '',
+        flag: '',
+        data: state.data.push.apply(state.data, action.data),
       };
     default:
       return state;

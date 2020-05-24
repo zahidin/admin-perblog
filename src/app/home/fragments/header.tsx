@@ -1,4 +1,5 @@
 import React from 'react';
+import Link from 'next/link';
 
 function header() {
   return (
@@ -7,7 +8,9 @@ function header() {
         <span className="font-weight-600 h1 has-text-black">Your Stories</span>
       </div>
       <div className="is-flex flex-1 align-items-center justify-content-end">
-        <button className="button is-primary is-outlined">Write a story</button>
+        <Link href="/new-story">
+          <button className="button is-primary is-outlined">Write a story</button>
+        </Link>
       </div>
     </div>
   );

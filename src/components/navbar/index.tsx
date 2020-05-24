@@ -1,15 +1,17 @@
 import { icons } from '@assets/index';
 import './style.scss';
+import { NavbarProps } from '@/types/components/navbar';
 
-function navbar() {
-  const { Logo } = icons;
+function Navbar(props: NavbarProps) {
+  const { logoSmall } = props;
+  const { Logo, LogoSmall } = icons;
 
   return (
     <nav className="navbar navbar-shadow" role="navigation" aria-label="main navigation">
       <div className="container">
         <div className="navbar-brand align-items-center">
           <a className="navbar-item" href="https://bulma.io"></a>
-          <Logo />
+          {logoSmall ? <LogoSmall /> : <Logo />}
           <a
             role="button"
             href="https://bulma.io"
@@ -38,4 +40,4 @@ function navbar() {
   );
 }
 
-export default navbar;
+export default Navbar;

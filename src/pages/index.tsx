@@ -1,7 +1,7 @@
 import Home from '@app/home';
 import { connect } from 'react-redux';
 import { bindActionCreators, Dispatch } from 'redux';
-import getPost from '@redux/post/action';
+import { getPost } from '@redux/post/action';
 import requestLoggedIn from '@redux/auth/action';
 import { getDataPost, getIsLoading, getPostIsError } from '@redux/post/selector';
 import {
