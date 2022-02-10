@@ -63,7 +63,7 @@
     "lodash": "^4.17.15",
     "next-compose-plugins": "^2.2.0",
     "next-images": "^1.4.0",
-    "node-sass": "^4.13.1",
+    "node-sass": "^7.0.0",
     "prettier": "^2.0.4",
     "prismjs": "^1.20.0",
     "react-cookie": "^4.0.3",
